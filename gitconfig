@@ -1,0 +1,16 @@
+[user]
+	name = Donald Linnemeyer
+	email = dlinnemeyer@economicmodeling.com
+[alias]
+ 	co = checkout
+  	ci = commit
+ 	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -pm
+	df = diff --word-diff=color
+[core]
+	editor = vim
+[push]
+	default = current
