@@ -1,3 +1,6 @@
+# source .bashrc in case they want local additions
+[ -f ~/.bashrc ] && source ~/.bashrc
+
 # basic aliases
 alias ll="ls -l --color=auto"
 alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
