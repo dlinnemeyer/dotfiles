@@ -5,8 +5,6 @@ alias json_pp="python -m json.tool"
 
 # For git tab completion
 source /etc/bash_completion.d/git
-source /etc/bash_completion.d/git-flow
-source ~/bash-completion/bash_completion
 
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
