@@ -24,6 +24,9 @@ fi
 echo "copying .bash_profile"
 cp $i .bash_profile ~/.bash_profile
 
+echo "copying .bashrc"
+cp $i .bashrc ~/.bashrc
+
 echo "copying .gitconfig"
 cp $i .gitconfig ~/.gitconfig
 
