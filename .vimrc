@@ -52,5 +52,8 @@ cnoremap <expr> e% getcmdtype() == ':' ? expand('e %:h').'/' : 'e%'
 " short-code for :Explore
 command E Explore
 
+" disable vim-markdown auto-folding
+let g:vim_markdown_folding_disabled=1
+
 " start up pathogen
 execute pathogen#infect()

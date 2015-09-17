@@ -1,6 +1,9 @@
 # source .bashrc.local so we can add local customization per environment
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
+# some ruby gem thing, making locally installed gems runnable
+export PATH=$PATH:~/bin
+
 # basic aliases
 alias ll="ls -l --color=auto"
 alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
