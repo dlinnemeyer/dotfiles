@@ -5,7 +5,7 @@
 export PATH=$PATH:~/bin
 
 # basic aliases
-alias ll="ls -l --color=auto"
+alias ll="ls -lh --color=auto"
 alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
 alias json_pp="python -m json.tool"
 
