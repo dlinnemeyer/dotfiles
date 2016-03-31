@@ -10,8 +10,8 @@ filetype plugin indent on
 " show line numbers
 set number
 
-" toned-down colorscheme
-colorscheme default
+" trying out monokai. we'll see
+colorscheme monokai
 
 " display status line
 set laststatus=2
