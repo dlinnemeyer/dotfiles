@@ -25,6 +25,7 @@ echo "copying vim colorschemes"
 if [ ! -d ~/.vim/colors ]; then
     mkdir ~/.vim/colors
 fi
+cp .vim/colors/* ~/.vim/colors
 cp .vim/bundle/colorschemes/colors/* ~/.vim/colors
 
 echo "copying .bash_profile"
