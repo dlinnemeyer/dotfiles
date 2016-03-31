@@ -21,6 +21,12 @@ else
 	[[ "$response" == "y" || "$response" == "yes" ]] && cp -r .vim/* ~/.vim/
 fi
 
+echo "copying vim colorschemes"
+if [ ! -d ~/.vim/colors ]; then
+    mkdir ~/.vim/colors
+fi
+cp .vim/bundle/colorschemes/colors/* ~/.vim/colors
+
 echo "copying .bash_profile"
 cp $i .bash_profile ~/.bash_profile
 

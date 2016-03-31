@@ -6,8 +6,9 @@ export PATH=$PATH:~/bin
 
 # basic aliases
 alias ll="ls -lh --color=auto"
-alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
+alias vim="vimx"
 alias json_pp="python -m json.tool"
+alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
 
 # For git tab completion
 source /etc/bash_completion.d/git
