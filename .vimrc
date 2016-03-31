@@ -10,6 +10,9 @@ filetype plugin indent on
 " show line numbers
 set number
 
+" toned-down colorscheme
+colorscheme default
+
 " display status line
 set laststatus=2
 
@@ -32,6 +35,9 @@ set wildmode=list:longest,full
 " allow for finding files in any subdirectories by default. use with :find and
 " just type the file name, ignoring directories
 set path+=./**
+
+" sync vim clipboard with system clipboard
+set clipboard=unnamedplus
 
 " window management
 nnoremap <C-n> <C-w>v<C-w>l
