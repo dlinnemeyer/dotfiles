@@ -9,6 +9,9 @@ filetype plugin indent on
 
 " show line numbers
 set number
+" let's just do 80 chars. i can figure out project-by-project whether to obey
+" this or not
+set colorcolumn=80
 
 " trying out monokai. we'll see
 colorscheme monokai
