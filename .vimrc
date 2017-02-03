@@ -64,5 +64,11 @@ command E Explore
 " disable vim-markdown auto-folding
 let g:vim_markdown_folding_disabled=1
 
+" cool python stuff
+let g:flake8_show_in_file=0
+let g:flake8_show_in_gutter=0
+let g:flake8_show_quickfix=1
+autocmd BufWritePost *.py call Flake8()
+
 " start up pathogen
 execute pathogen#infect()
