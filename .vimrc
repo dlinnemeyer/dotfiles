@@ -7,6 +7,8 @@ set softtabstop=4
 set shiftwidth=4
 filetype plugin indent on
 
+au BufNewFile,BufRead *.pyi set filetype=python
+
 " show line numbers
 set number
 " let's just do 80 chars. i can figure out project-by-project whether to obey
