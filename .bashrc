@@ -8,7 +8,12 @@ export PATH=$PATH:~/bin
 alias ll="ls -lh --color=auto"
 alias vim="vimx"
 alias json_pp="python -m json.tool"
-alias pvim=$'xargs -I {} -L 20 bash -c \'</dev/tty vim {}\''
+alias pyvim="source venv/bin/activate && vim"
+alias ackvim=ackvimfunc
+alias dockerbash="docker exec -it local_app_1 bash"
+ackvimfunc(){
+    vim $(ack -l $@)
+}
 
 # For git tab completion
 source /etc/bash_completion.d/git
@@ -43,3 +48,6 @@ PS2='> '
 PS4='+ '
 }
 proml
+
+export NVM_DIR="/home/dlinnemeyer/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
