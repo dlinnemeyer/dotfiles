@@ -5,20 +5,14 @@ if [ ! "$1" == "-f" ]; then
 	i="-i"
 fi
 
-echo "copying .vimrc and .vim/"
+echo "copying .vimrc"
 cp $i .vimrc ~/.vimrc
 if [ ! -d ~/.vim ]; then
-    mkdir ~/.vim && cp -r .vim/* ~/.vim/
-else
-	# don't use native cp -i here, since there are so many individual files
-	if [ "$i" == "-i" ]; then
-		echo -n "overwrite $HOME/.vim? "
-	    read response
-	else 
-		response="y"
-	fi
-
-	[[ "$response" == "y" || "$response" == "yes" ]] && cp -r .vim/* ~/.vim/
+    echo "making .vim directory and installing vundle"
+    mkdir -p ~/.vim/bundle
+    mkdir ~/.vim/colors
+    # we need to install vundle ourselves. all other vim plugins are handled by vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 echo "copying vim colorschemes"
@@ -26,7 +20,6 @@ if [ ! -d ~/.vim/colors ]; then
     mkdir ~/.vim/colors
 fi
 cp .vim/colors/* ~/.vim/colors
-cp .vim/bundle/colorschemes/colors/* ~/.vim/colors
 
 echo "copying .bash_profile"
 cp $i .bash_profile ~/.bash_profile
