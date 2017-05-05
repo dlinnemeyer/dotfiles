@@ -10,16 +10,9 @@ cp $i .vimrc ~/.vimrc
 if [ ! -d ~/.vim ]; then
     echo "making .vim directory and installing vundle"
     mkdir -p ~/.vim/bundle
-    mkdir ~/.vim/colors
     # we need to install vundle ourselves. all other vim plugins are handled by vundle
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
-
-echo "copying vim colorschemes"
-if [ ! -d ~/.vim/colors ]; then
-    mkdir ~/.vim/colors
-fi
-cp .vim/colors/* ~/.vim/colors
 
 echo "copying .bash_profile"
 cp $i .bash_profile ~/.bash_profile
