@@ -15,10 +15,18 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " i like to use ctrlp in buffer mode for switching among current files
-nnoremap <c-b> :CtrlPBuffer<CR>
+" This over-rides vim's default c-o functionality, which switches through
+" recent cursor positions, but I never use that
+nnoremap <c-o> :CtrlPBuffer<CR>
+" best match on top and keep the height consistent to 10 so no screen jumping
+let g:ctrlp_match_window = 'bottom,order:ttb,min:10,max:10,results:10'
+
+" exclude silly files
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/](\..git|\.hg|\.svn|venv|node_modules)$'
+"
+" speed up ctrlp using ag, if installed
 let g:ctrlp_use_caching = 0
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -137,8 +145,14 @@ fun! MatchCaseTag()
 endfun
 nnoremap <silent> <c-]> :call MatchCaseTag()<CR>
 
-" building on all the mappings above, here are some leader-based key combos
+" quick home-row-oriented mappings. mostly leader mappings building on the
+" above
 let mapleader = "\<Space>"
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>c :.Commentary<CR>
+nnoremap <Leader>n <C-w>v<C-w>l
+nnoremap <Leader>q :qa<CR>
+nnoremap <Leader>w :wa<CR>
+" so I don't have to press shift. that's right
+nnoremap ; :
