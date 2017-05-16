@@ -6,17 +6,22 @@ export PATH=$PATH:~/bin
 
 # basic aliases
 alias ll="ls -lh --color=auto"
-alias vim="vimx"
+# alias vim="vimx"
 alias json_pp="python -m json.tool"
 alias pyvim="source venv/bin/activate && vim"
 alias ackvim=ackvimfunc
-alias dockerbash="docker exec -it local_app_1 bash"
+# alias dockerbash="docker exec -it local_app_1 bash"
 ackvimfunc(){
     vim $(ack -l $@)
 }
 
-# For git tab completion
-source /etc/bash_completion.d/git
+# For git tab completion. first linux, then mac
+if [ -f '/etc/bash_completion.d/git' ]; then
+    source /etc/bash_completion.d/git
+fi
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+    source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
 
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'

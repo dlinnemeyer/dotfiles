@@ -66,6 +66,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+set mouse=a
+
 au BufNewFile,BufRead *.pyi set filetype=python
 
 " show line numbers
@@ -106,7 +108,10 @@ set undoreload=10000        " number of lines to save for undo
 set path+=./**
 
 " sync vim clipboard with system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
 " window management
 nnoremap <C-n> <C-w>v<C-w>l
