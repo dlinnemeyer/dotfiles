@@ -12,5 +12,6 @@
 	df = diff --word-diff=color
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple

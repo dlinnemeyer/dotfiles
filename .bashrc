@@ -4,11 +4,13 @@
 # some ruby gem thing, making locally installed gems runnable
 export PATH=$PATH:~/bin
 
-# basic aliases
-alias ll="ls -lh --color=auto"
+# get ll working with color in both mac and linux
+alias ll="ls -lhF --color=auto"
+ll &> /dev/null || alias ll="ls -lhFG"
+
 # alias vim="vimx"
 alias json_pp="python -m json.tool"
-alias pyvim="source venv/bin/activate && vim"
+# alias pyvim="source venv/bin/activate && vim"
 alias ackvim=ackvimfunc
 # alias dockerbash="docker exec -it local_app_1 bash"
 ackvimfunc(){
@@ -53,6 +55,3 @@ PS2='> '
 PS4='+ '
 }
 proml
-
-export NVM_DIR="/home/dlinnemeyer/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

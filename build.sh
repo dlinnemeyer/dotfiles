@@ -23,6 +23,9 @@ cp $i .bashrc ~/.bashrc
 echo "copying .gitconfig"
 cp $i .gitconfig ~/.gitconfig
 
+echo "copying .gitignore_global"
+cp $i .gitignore_global ~/.gitignore_global
+
 echo "copying .i3/"
 [ ! -d ~/.i3 ] && mkdir ~/.i3
 cp $i .i3/* ~/.i3
