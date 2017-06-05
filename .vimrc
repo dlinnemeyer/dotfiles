@@ -49,12 +49,20 @@ let g:vim_markdown_folding_disabled=1
 Plugin 'flazz/vim-colorschemes'
 
 Plugin 'editorconfig/editorconfig-vim'
+" autocmd BufWritePost *.py call Flake8()
 
-Plugin 'nvie/vim-flake8'
-let g:flake8_show_in_file=0
-let g:flake8_show_in_gutter=0
-let g:flake8_show_quickfix=1
-autocmd BufWritePost *.py call Flake8()
+Plugin 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_javascript_checkers = ["eslint"]
 
 " Vundle finis
 call vundle#end()            " required
