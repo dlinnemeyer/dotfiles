@@ -49,12 +49,8 @@ let g:vim_markdown_folding_disabled=1
 Plugin 'flazz/vim-colorschemes'
 
 Plugin 'editorconfig/editorconfig-vim'
-" autocmd BufWritePost *.py call Flake8()
 
 Plugin 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -62,6 +58,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ["eslint"]
 
 " Vundle finis
@@ -89,8 +86,19 @@ set colorcolumn=80
 " trying out monokai. we'll see
 colorscheme monokai
 
+" get a decent search results highlight. make sure this is after the
+" colorscheme, since we're over-riding that search highlight setting
+set hlsearch
+hi Search cterm=NONE ctermfg=NONE ctermbg=darkGrey
+
 " display status line
 set laststatus=2
+set statusline=%f         " Path to the file
+set statusline+=%=        " Switch to the right side
+set statusline+=%l    " Current line
+set statusline+=/    " Separator
+set statusline+=%L   " Total lines
+
 
 " enable case-insensitive searching
 set ic
