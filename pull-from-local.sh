@@ -19,6 +19,9 @@ cp $i ~/.bashrc .bashrc
 echo "copying .gitconfig"
 cp $i ~/.gitconfig .gitconfig
 
+echo "copying .psqlrc"
+cp $i ~/.psqlrc .psqlrc
+
 echo "copying .gitignore_global"
 cp $i ~/.gitignore_global .gitignore_global
 

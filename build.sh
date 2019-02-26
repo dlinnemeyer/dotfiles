@@ -20,6 +20,9 @@ cp $i .bash_profile ~/.bash_profile
 echo "copying .bashrc"
 cp $i .bashrc ~/.bashrc
 
+echo "copying .psqlrc"
+cp $i .psqlrc ~/.psqlrc
+
 echo "copying .gitconfig"
 cp $i .gitconfig ~/.gitconfig
 

@@ -17,12 +17,14 @@ ackvimfunc(){
     vim $(ack -l $@)
 }
 
-# For git tab completion. first linux, then mac
+# For git tab completion. first linux, then mac. is the linux version needed?
 if [ -f '/etc/bash_completion.d/git' ]; then
     source /etc/bash_completion.d/git
 fi
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-    source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+
+# load all bash completion. must run `brew install bash-completion` for this
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 function parse_git_branch {

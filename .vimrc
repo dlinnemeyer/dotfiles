@@ -1,11 +1,12 @@
 " tab stuff
 syntax on
-set autoindent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+" set autoindent
+" set expandtab
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
 
+" enable mouse support for all modes
 set mouse=a
 
 au BufNewFile,BufRead *.pyi set filetype=python
@@ -27,6 +28,7 @@ set statusline+=%=        " Switch to the right side
 set statusline+=%l    " Current line
 set statusline+=/    " Separator
 set statusline+=%L   " Total lines
+set statusline+=\[%c\]   " column
 
 " clean out end-of-line whitespace in select file types
 autocmd BufWritePre *.js,*.html,*.py,*.pyi %s/\s\+$//e
@@ -111,6 +113,11 @@ nnoremap <Leader>w :wa<CR>
 " so I don't have to press shift. that's right
 nnoremap ; :
 
+" use shift-j/k to imitate mouse wheel scrolling. the built-in ctrl-y/e is too
+" slow and uncomfortable to type often
+nnoremap J 2j
+nnoremap K 2k
+
 " Vundle junk first, so it's out of the way
 set nocompatible
 filetype off
@@ -134,6 +141,7 @@ nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>f :cclose<CR>
 
 Plugin 'tpope/vim-sleuth'
+autocmd FileType sql set sw=2
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -170,6 +178,13 @@ Plugin 'tpope/vim-commentary'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'tpope/vim-surround'
+" because ysiw is really clunky. cs and ds are fine for changing and deleting.
+" this doens't cover yss (line-based) surrounds, but those seem rare enough
+nmap <Leader>s <Plug>Ysurroundiw
+
+Plugin 'tpope/vim-repeat'
+
 Plugin 'plasticboy/vim-markdown'
 " disable vim-markdown auto-folding
 let g:vim_markdown_folding_disabled=1
@@ -196,6 +211,9 @@ let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint']
 \}
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Vundle finis
 call vundle#end()            " required
