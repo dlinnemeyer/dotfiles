@@ -1,8 +1,7 @@
 # source .bashrc.local so we can add local customization per environment
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
-# some ruby gem thing, making locally installed gems runnable
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/.bin
 
 # get ll working with color in both mac and linux
 alias ll="ls -lhF --color=auto"
@@ -57,3 +56,5 @@ PS2='> '
 PS4='+ '
 }
 proml
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

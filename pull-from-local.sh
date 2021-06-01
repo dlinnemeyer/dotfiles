@@ -27,3 +27,6 @@ cp $i ~/.gitignore_global .gitignore_global
 
 echo "copying .i3/"
 cp $i ~/.i3/* .i3
+
+echo "copying .zshrc/"
+cp $i ~/.zshrc .zshrc

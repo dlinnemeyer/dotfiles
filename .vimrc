@@ -13,13 +13,9 @@ au BufNewFile,BufRead *.pyi set filetype=python
 
 " show line numbers
 set number
-" let's just do 80 chars. i can figure out project-by-project whether to obey
+" let's just do 88 chars. I can figure out project-by-project whether to obey
 " this or not
-set colorcolumn=80
-
-" more formal textwidth for markdown. can format this on visual selection
-" with gq
-au BufRead,BufNewFile *.md setlocal textwidth=80
+set colorcolumn=88
 
 " display status line
 set laststatus=2
@@ -193,18 +189,6 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'editorconfig/editorconfig-vim'
 
-" Plugin 'vim-syntastic/syntastic'
-
-" Plugin 'mtscout6/syntastic-local-eslint.vim'
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_highlighting = 1
-" let g:syntastic_python_checkers = ["flake8"]
-" let g:syntastic_html_checkers = []
-" let g:syntastic_javascript_checkers = ["eslint"]
 Plugin 'w0rp/ale'
 let g:ale_linters = {
 \   'python': ['flake8'],
@@ -212,8 +196,17 @@ let g:ale_linters = {
 \   'javascript': ['eslint']
 \}
 
+let g:ale_python_flake8_executable = $GLOBAL_PY_PATH . "/bin/flake8"
+let g:ale_python_flake8_use_global = 1
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Plugin for python formatting
+Plugin 'ambv/black'
+
+" run black on writing any python files
+autocmd BufWritePre *.py execute ':Black'
 
 " Vundle finis
 call vundle#end()            " required
@@ -233,3 +226,10 @@ hi clear SpellCap
 hi SpellCap cterm=underline ctermfg=red
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
+
+" setup textwidth to 88, but disable auto-formatting. so text-width is
+" only enforced when rewrapping (gq).
+" I had to place this at the bottom of the file because some plugin was messing with it
+set formatoptions-=t
+set textwidth=88
+" au BufRead,BufNewFile *.md setlocal textwidth=88
